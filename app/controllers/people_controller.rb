@@ -8,8 +8,11 @@ class PeopleController < ApplicationController
   end
 
   def new
-    # if this doesn't work add the private method person_params from the pages homework
     @person = Person.new
+  end
+
+  def create
+    @person = Person.new(people_params)
     if @person.save
       redirect_to people_path
     else
@@ -17,25 +20,28 @@ class PeopleController < ApplicationController
     end
   end
 
-  def update
-    #if this doesn't work, then you need the same private method as the "new" method
+  def edit
     @person = Person.find(params[:id])
-
-    if @person.update
-      redirect_to person_path
+  end
+  
+  def update
+    @person = Person.find(params[:id])
+    if @person.update(people_params)
+      redirect_to people_path
     else
       render :edit
     end
   end
 
-  def delete
+  def destroy
     Person.find(params[:id]).destroy
     redirect_to people_path
   end
 
 
-
-
-
+private
+  def people_params
+    params.require(:person).permit(:first_name, :last_name, :age, :eye_color, :hair_color, :gender, :alive)
+  end
 
 end
