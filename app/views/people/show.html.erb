@@ -1,15 +1,9 @@
 <h1><%= @person.full_name %></h1>
 <ul>
-  <li><%= @person.age %></li>
-  <li><%= @person.hair_color %></li>
-  <li><%= @person.eye_color %></li>
-  <li><%= @person.gender %></li>
-  <li><%= 
-  if @person.alive = true
-  print "Alive" 
-  else
-  print "Deceased"
-  end 
-  %></li>
+  <li>Age: <%= @person.age %></li>
+  <li>Hair color: <%= @person.hair_color %></li>
+  <li>Eye color: <%= @person.eye_color %></li>
+  <li>Gender: <%= @person.gender %></li>
+  <li>Living: <%= @person.alive %></li>
 </ul>
 <%= link_to "Back", person_path %>

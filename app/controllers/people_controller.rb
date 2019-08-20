@@ -18,9 +18,19 @@ class PeopleController < ApplicationController
   end
 
   def update
+    #if this doesn't work, then you need the same private method as the "new" method
+    @person = Person.find(params[:id])
+
+    if @person.update
+      redirect_to person_path
+    else
+      render :edit
+    end
   end
 
   def delete
+    Person.find(params[:id]).destroy
+    redirect_to people_path
   end
 
 
