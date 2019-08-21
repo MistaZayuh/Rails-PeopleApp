@@ -20,11 +20,15 @@
   <%= f.label :eye_color %>
   <%= f.text_field :eye_color %>
 
-  <%= f.label :alive, 'Alive', value: true %>
-  <%= f.radio_button :alive, 'alive', :value => true %>
+  <div>
+    <%= f.label :alive, 'Alive', :value => true %>
+    <%= f.radio_button :alive, true %>
+  </div>
 
-  <%= f.label :alive, 'Deceased', value: false %>
-  <%= f.radio_button :alive, 'deceased', :value => false %>
+  <div>
+    <%= f.label :alive, 'Deceased', :value => false %>
+    <%= f.radio_button :alive, false %>
+  </div>
 
   <%= f.submit %>
 <% end %>
