@@ -4,6 +4,12 @@
   <li>Hair color: <%= @person.hair_color %></li>
   <li>Eye color: <%= @person.eye_color %></li>
   <li>Gender: <%= @person.gender %></li>
-  <li>Living: <%= @person.alive %></li>
+  <li>Living: 
+  <% if @person.alive == true%>
+   Alive
+  <%elsif @person.alive == false%>
+   Deceased
+  <%end%>
+  </li>
 </ul>
 <%= link_to "Back", people_path %>
